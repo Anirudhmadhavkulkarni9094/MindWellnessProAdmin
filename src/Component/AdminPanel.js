@@ -19,11 +19,15 @@ function AdminPanel() {
       {
         title: 'Complaints',
         code: 'Complaints',
+      },
+      {
+        title: 'Questions',
+        code: 'Questions',
       }
   ];
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center items-center h-screen bg-gray-100 absolute w-full -z-10 top-0">
       {auth ? (
         <div className="w-full max-w-3xl bg-white rounded-md shadow-lg p-8">
           <h1 className="text-3xl font-bold mb-6 text-center">Admin Panel</h1>

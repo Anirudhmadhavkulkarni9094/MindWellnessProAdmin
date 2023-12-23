@@ -7,6 +7,7 @@ import Response from './Component/Response/Response';
 import Report from './Component/Report/Report';
 import Forum from './Component/Forums/Forum';
 import Complaints from './Component/Complaints/Complaints';
+import QuestionHome from './Component/Questions/QuestionHome';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/admin/Reports" element={<Report />} />
             <Route path="/admin/Forums" element={<Forum />} />
             <Route path="/admin/Complaints" element={<Complaints />} />
+            <Route path = "/admin/Questions" element= {<QuestionHome/>}></Route>
           </Routes>
       </BrowserRouter>
     </>
