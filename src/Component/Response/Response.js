@@ -86,7 +86,7 @@ function Response() {
       {alert && <Toast message={message} />}
       <div>
         {loading ? (
-          <img src={LoadingImage} alt='Loading...' className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28' />
+          <img src={LoadingImage} alt='Loading...' className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28'  />
         ) : error ? (
           <p>Error: {error}</p>
         ) : (
@@ -99,18 +99,18 @@ function Response() {
                   className='px-3 py-1 rounded-md'
                   onClick={() => openModal(res)}
                 >
-                  <img src={require("../../Assets/view.png")} className='w-6'></img>
+                  <img src={require("../../Assets/view.png")} className='w-6' alt='view'></img>
                 </button>
                 <button
                   className='px-3 py-1 rounded-md'
                 >
-                  <img src={require("../../Assets/download.png")} className='w-6'></img>
+                  <img src={require("../../Assets/download.png")} className='w-6' alt='download'></img>
                 </button>
                 <button
                   className='px-3 py-1 rounded-md'
                   onClick={() => handleDelete(res._id)}
                 >
-                  <img src={require("../../Assets/delete.png")} className='w-6'></img>
+                  <img src={require("../../Assets/delete.png")} className='w-6' alt='delete'></img>
                 </button>
               </div>
             </div>
