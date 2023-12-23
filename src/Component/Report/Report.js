@@ -41,7 +41,7 @@ function Report() {
  const [toast , setToast] = useState(false);
     const [message , setMessage] = useState("");
   useEffect(() => {
-    axios.get('http://localhost:3001/getReport')
+    axios.get('https://mindwellnesspro.onrender.com/getReport')
       .then(res => {
         setReports(res.data.data);
       })
