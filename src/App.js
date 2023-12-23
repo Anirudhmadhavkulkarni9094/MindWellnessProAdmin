@@ -6,6 +6,7 @@ import AdminPanel from './Component/AdminPanel';
 import Response from './Component/Response/Response';
 import Report from './Component/Report/Report';
 import Forum from './Component/Forums/Forum';
+import Complaints from './Component/Complaints/Complaints';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/admin/response" element={<Response/>} />
             <Route path="/admin/Reports" element={<Report />} />
             <Route path="/admin/Forums" element={<Forum />} />
+            <Route path="/admin/Complaints" element={<Complaints />} />
           </Routes>
       </BrowserRouter>
     </>
