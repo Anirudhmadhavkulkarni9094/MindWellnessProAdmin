@@ -13,7 +13,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-    <h1 className='text-center font-bold bg-white pt-5 '>ADMIN PANEL</h1>
+    <h1 className='text-center font-bold bg-white p-2 '>ADMIN PANEL</h1>
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/admin" element={<AdminPanel />} />
