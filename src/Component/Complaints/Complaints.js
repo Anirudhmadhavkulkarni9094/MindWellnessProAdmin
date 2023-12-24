@@ -3,6 +3,7 @@ import axios from "axios";
 import GoBack from "../GoBack";
 
 const Complaints = () => {
+  const auth = sessionStorage.getItem('auth');
   const [complaints, setComplaints] = useState([]);
   const [status, setStatus] = useState("Unresolved");
 
@@ -35,6 +36,8 @@ const Complaints = () => {
   return (
     <div className="container mx-auto py-8">
       <GoBack />
+      {auth ?
+        <div>
       <div className="flex justify-between mx-4 md:mx-10 gap-1">
         <h1 className="text-3xl font-bold mb-4">Complaints</h1>
         <select
@@ -45,8 +48,8 @@ const Complaints = () => {
               : status === "Unresolved"
               ? "bg-red-600"
               : "bg-yellow-400"
-          } text-white font-bold px-3 py-2 rounded-md`}
-        >
+            } text-white font-bold px-3 py-2 rounded-md`}
+            >
           <option value={"Unresolved"}>Unresolved</option>
           <option value={"In progress"}>In progress</option>
           <option value={"Resolved"}>Resolved</option>
@@ -56,8 +59,8 @@ const Complaints = () => {
         {complaints.length > 0 ? (
           complaints.map((complaint) => (
             <div
-              key={complaint._id}
-              className="border p-4 rounded shadow-md bg-white relative flex flex-col justify-between gap-5"
+            key={complaint._id}
+            className="border p-4 rounded shadow-md bg-white relative flex flex-col justify-between gap-5"
             >
               <div>
                 <h2 className="text-lg font-semibold">{complaint.name}</h2>
@@ -67,10 +70,10 @@ const Complaints = () => {
               <button
                 className={`${
                   complaint.status === "Resolved"
-                    ? "bg-green-600"
-                    : complaint.status === "Unresolved"
-                    ? "bg-red-600"
-                    : "bg-yellow-400"
+                  ? "bg-green-600"
+                  : complaint.status === "Unresolved"
+                  ? "bg-red-600"
+                  : "bg-yellow-400"
                 } text-white font-bold px-3 py-2 rounded-md absolute top-0 right-0`}
               >
                 {complaint.status}{" "}
@@ -79,14 +82,14 @@ const Complaints = () => {
                 className="bg-black text-white w-fit px-3 py-2 rounded-md"
                 onClick={() => {
                   const newStatus =
-                    complaint.status === "Unresolved"
-                      ? "In progress"
-                      : complaint.status === "In progress"
-                      ? "Resolved"
-                      : "Unresolved";
+                  complaint.status === "Unresolved"
+                  ? "In progress"
+                  : complaint.status === "In progress"
+                  ? "Resolved"
+                  : "Unresolved";
                   updateStatus(complaint._id, newStatus);
                 }}
-              >
+                >
                 {complaint.status === "Unresolved"
                   ? "In progress"
                   : complaint.status === "In progress"
@@ -100,7 +103,8 @@ const Complaints = () => {
             No issues in {status}
           </h1>
         )}
-      </div>
+        </div>
+      </div>  : <h1>Cannot be accessed wihtout logging in</h1>}
     </div>
   );
 };

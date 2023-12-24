@@ -5,7 +5,7 @@ function Forum() {
     const [blogs ,setBlogs] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('ANX');
     const [selectedBlogId, setSelectedBlogId] = useState(null);
-    
+    const auth = sessionStorage.getItem('auth');
     const channels = [
         { id: 1, name: 'Anxiety', description: 'Discussions about anxiety and coping mechanisms.' , category : "ANX" },
         { id: 2, name: 'Depression', description: 'Support and advice for dealing with depression.' , category : "DEP"},
@@ -54,6 +54,7 @@ function Forum() {
       }
       return (
         <div>
+          {auth ? <>
           <GoBack />
           <div className='m-5'>
             <select onChange={handleChannelSelect} className='p-3 bg-blue-700 rounded-lg text-white'c>
@@ -88,8 +89,8 @@ function Forum() {
                 {selectedBlogId === blog._id &&
                     <div className="mt-4">
                         {blog.comments.map(comment => (
-                            
-                                <div key={comment._id} className="bg-gray-200 p-2 rounded mb-2">
+                          
+                          <div key={comment._id} className="bg-gray-200 p-2 rounded mb-2">
                                         <p className='text-md'>{comment.text}</p>
                                         <div className='flex justify-between text-sm text-gray-600'>
                                         <p>{new Date(comment.date).toLocaleString().slice(0, 10)}</p>
@@ -102,6 +103,7 @@ function Forum() {
                 }
             </div>
         )) : <h1 className='text-center font-bold'>No forum blogs found for this Category</h1>}
+        </> : <h1>Cannot be accessed without logging in</h1>}
         </div>
       );
     }

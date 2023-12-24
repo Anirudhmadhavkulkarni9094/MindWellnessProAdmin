@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
+import {useState} from 'react'
 import Login from './Component/Login';
 import AdminPanel from './Component/AdminPanel';
 import Response from './Component/Response/Response';
@@ -10,6 +10,11 @@ import Complaints from './Component/Complaints/Complaints';
 import QuestionHome from './Component/Questions/QuestionHome';
 
 function App() {
+  const [auth , setAuth ] = useState(false);
+
+  let authorization = (authorize) =>{
+      setAuth(authorize)
+  }
   return (
     <>
     <BrowserRouter>

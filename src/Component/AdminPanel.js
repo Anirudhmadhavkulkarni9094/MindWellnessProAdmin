@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 function AdminPanel() {
   const auth = sessionStorage.getItem('auth');
+
   const actions = [
     {
       title: 'Response',

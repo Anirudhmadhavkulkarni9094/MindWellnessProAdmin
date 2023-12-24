@@ -35,6 +35,7 @@ function Modal({ response, closeModal }) {
   }
 
 function Report() {
+  const auth = sessionStorage.getItem('auth');
   const [reports, setReports] = useState([]);
   const [selectedReport, setSelectedReport] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -81,7 +82,8 @@ function Report() {
 
   return (
     <div className="overflow-x-auto">
-      <GoBack />
+      {auth ? <>
+        <GoBack />
       {toast && <Toast message={message}></Toast>}
       <table className="min-w-full divide-y divide-gray-200 text-center">
         <thead>
@@ -107,6 +109,8 @@ function Report() {
           ))}
         </tbody>
       </table>
+          </>
+      : <h1>cannot be accessed without logging in</h1>}
   
       {modalOpen && selectedReport && (
         <Modal
