@@ -8,7 +8,7 @@ const Complaints = () => {
 
   useEffect(() => {
     fetchComplaints();
-  }, [status]);
+  });
 
   const fetchComplaints = async () => {
     try {
