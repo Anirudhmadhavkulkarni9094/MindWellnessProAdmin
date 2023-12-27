@@ -5,7 +5,7 @@ function Forum() {
     const [blogs ,setBlogs] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('ANX');
     const [selectedBlogId, setSelectedBlogId] = useState(null);
-    const auth = sessionStorage.getItem('auth');
+    const auth = sessionStorage.getItem("auth") === "true";
     const channels = [
         { id: 1, name: 'Anxiety', description: 'Discussions about anxiety and coping mechanisms.' , category : "ANX" },
         { id: 2, name: 'Depression', description: 'Support and advice for dealing with depression.' , category : "DEP"},

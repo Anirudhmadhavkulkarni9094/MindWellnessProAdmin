@@ -3,7 +3,7 @@ import axios from "axios";
 import GoBack from "../GoBack";
 
 const Complaints = () => {
-  const auth = sessionStorage.getItem('auth');
+  const auth = sessionStorage.getItem('auth') === "true";
   const [complaints, setComplaints] = useState([]);
   const [status, setStatus] = useState("Unresolved");
 

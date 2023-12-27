@@ -3,7 +3,7 @@ import DisplayQuestion from './DisplayQuestion'
 import GoBack from '../GoBack'
 
 function QuestionHome() {
-  const auth = sessionStorage.getItem('auth');
+  const auth = sessionStorage.getItem("auth") === "true";
   return (
     <div>
       <GoBack/>{auth ?

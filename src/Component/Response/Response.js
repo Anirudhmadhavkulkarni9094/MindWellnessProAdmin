@@ -41,26 +41,25 @@ function Response() {
     axios.get("https://mindwellnesspro.onrender.com/UserResponse")
       .then(res => {
         setResponse(res.data.data);
-        setLoading(false); // Set loading to false after data is fetched
+        setLoading(false);
       })
       .catch(err => {
         setError(err.message);
-        setLoading(false); // Set loading to false in case of error
+        setLoading(false);
       });
   }, []);
 
   const handleDelete = (id) => {
-    // Find the response to delete
     const responseToDelete = response.find((res) => res._id === id);
-  
-    // Ask for confirmation before deleting
     const confirmDelete = window.confirm(`Are you sure you want to delete '${responseToDelete.name}'?`);
     
     if (confirmDelete) {
-      const updatedResponse = response.filter((res) => res._id !== id);
-      setMessage('Response Deleted successfully');
-      setResponse(updatedResponse);
-      setAlert(true);
+      axios.delete(`http://localhost:3001/DeleteUserResponse/${id}`).then(res => {
+        const updatedResponse = response.filter((res) => res._id !== id);
+        setMessage('Response Deleted successfully');
+        setResponse(updatedResponse);
+        setAlert(true);
+      });
     }
   };
 
@@ -80,41 +79,40 @@ function Response() {
   }, [alert]);
 
   return (
-    <div className='p-10'>
+    <div className='p-10 md:px-20 lg:px-32'>
       <GoBack />
       <h1 className='font-bold text-gray-400 text-sm'>{response.length} response(s)</h1>
       {alert && <Toast message={message} />}
-      <div>
+      <div className='overflow-x-auto'>
         {loading ? (
           <img src={LoadingImage} alt='Loading...' className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28'  />
         ) : error ? (
           <p>Error: {error}</p>
         ) : (
-          response.map((res, index) => (
-            <div key={index} className='flex items-center justify-between px-10 py-4 border-b border-gray-300'>
-              <h1 className='text-lg font-semibold'>{res.name}</h1>
-              <p className='text-sm text-gray-600'>{res.email}</p>
-              <div className='flex gap-5'>
-                <button
-                  className='px-3 py-1 rounded-md'
-                  onClick={() => openModal(res)}
-                >
-                  <img src={require("../../Assets/view.png")} className='w-6' alt='view'></img>
-                </button>
-                <button
-                  className='px-3 py-1 rounded-md'
-                >
-                  <img src={require("../../Assets/download.png")} className='w-6' alt='download'></img>
-                </button>
-                <button
-                  className='px-3 py-1 rounded-md'
-                  onClick={() => handleDelete(res._id)}
-                >
-                  <img src={require("../../Assets/delete.png")} className='w-6' alt='delete'></img>
-                </button>
+          <div className='flex flex-col'>
+            {response.map((res, index) => (
+              <div key={index} className='border-b border-gray-300 py-4 md:flex md:items-center md:justify-between'>
+                <div className='md:w-1/3'>
+                  <h1 className='text-lg font-semibold'>{res.name}</h1>
+                  <p className='text-sm text-gray-600'>{res.email}</p>
+                </div>
+                <div className='flex gap-5 w-full justify-end md:w-fit md:gap-0 md:justify-start mt-4 md:mt-0'>
+                  <button
+                    className='px-3 py-1 rounded-md'
+                    onClick={() => openModal(res)}
+                  >
+                    <img src={require("../../Assets/view.png")} className='w-6' alt='view'></img>
+                  </button>
+                  <button
+                    className='px-3 py-1 rounded-md'
+                    onClick={() => handleDelete(res._id)}
+                  >
+                    <img src={require("../../Assets/delete.png")} className='w-6' alt='delete'></img>
+                  </button>
+                </div>
               </div>
-            </div>
-          ))
+            ))}
+          </div>
         )}
       </div>
       {modalOpen && <Modal response={selectedResponse} closeModal={closeModal} />}

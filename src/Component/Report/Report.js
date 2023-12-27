@@ -35,7 +35,7 @@ function Modal({ response, closeModal }) {
   }
 
 function Report() {
-  const auth = sessionStorage.getItem('auth');
+  const auth =sessionStorage.getItem("auth") === "true";
   const [reports, setReports] = useState([]);
   const [selectedReport, setSelectedReport] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
