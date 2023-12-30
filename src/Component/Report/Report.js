@@ -69,7 +69,7 @@ function Report() {
   }, [toast]);
   
    let ReportDeletionButton = (uniqueId )  =>{
-         axios.delete(`http://localhost:3001/deleteReport/${uniqueId}`).then(console.log("deleted"));
+         axios.delete(`https://mindwellnesspro.onrender.com/deleteReport/${uniqueId}`).then(console.log("deleted"));
          const confirmDelete = window.confirm(`Are you sure you want to delete?`);
          if(confirmDelete) {
              setReports(reports)

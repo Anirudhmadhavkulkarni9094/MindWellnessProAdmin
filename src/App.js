@@ -8,6 +8,7 @@ import Forum from './Component/Forums/Forum';
 import Complaints from './Component/Complaints/Complaints';
 import QuestionHome from './Component/Questions/QuestionHome';
 import AdminApproval from './Component/AdminApproval/AdminApproval';
+import Testimonial from './Component/Testimonials/Testimonial';
 
 function App() {
   const auth = sessionStorage.getItem("auth") === "true";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/admin/Complaints" element={<Complaints />} />
             <Route path = "/admin/Questions" element= {<QuestionHome/>}></Route>
             <Route path = "/admin/Admin-Approval" element = {<AdminApproval/>}></Route>
+            <Route path = "/admin/Testimonial" element = {<Testimonial/>}></Route>
             </> : <Route path = "/admin/Admin-Approval" element = {<h1 className='font-bold text-center'>Cannot be accessed Without logging in</h1>}></Route>}
           </Routes>
       </BrowserRouter>

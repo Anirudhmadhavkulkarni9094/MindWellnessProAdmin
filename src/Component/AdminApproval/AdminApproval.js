@@ -7,7 +7,7 @@ function AdminApproval() {
   const loggedInAdminId = sessionStorage.getItem("adminID");
 
   useEffect(() => {
-    axios.get("http://localhost:3001/getAdmin")
+    axios.get("https://mindwellnesspro.onrender.com/getAdmin")
       .then(res => {
         setAdmins(res.data.data);
       })
@@ -17,7 +17,7 @@ function AdminApproval() {
   }, [loggedInAdminId]);
 
   const handleDemotion = (id) => {
-    axios.put(`http://localhost:3001/demote-to-superadmin/${id}`)
+    axios.put(`https://mindwellnesspro.onrender.com/demote-to-superadmin/${id}`)
       .then(res => {
         alert("User demoted successfully");
         // Update the admin list after successful demotion
@@ -34,7 +34,7 @@ function AdminApproval() {
   };
 
   const handleApprove = (id) => {
-    axios.put(`http://localhost:3001/approveLogin/${id}`)
+    axios.put(`https://mindwellnesspro.onrender.com/approveLogin/${id}`)
       .then(res => {
         alert("User approved successfully");
         // Update the admin list after successful approval
@@ -50,7 +50,7 @@ function AdminApproval() {
       });
   };
   const handleDisApprove = (id) => {
-    axios.put(`http://localhost:3001/DisapproveLogin/${id}`)
+    axios.put(`https://mindwellnesspro.onrender.com/DisapproveLogin/${id}`)
       .then(res => {
         alert("User Disapproved successfully");
         // Update the admin list after successful approval
@@ -67,7 +67,7 @@ function AdminApproval() {
   };
 
   const handlePromotion = (id) => {
-    axios.put(`http://localhost:3001/promote-to-superadmin/${id}`)
+    axios.put(`https://mindwellnesspro.onrender.com/promote-to-superadmin/${id}`)
       .then(res => {
         alert("User promoted successfully");
         // Update the admin list after successful promotion

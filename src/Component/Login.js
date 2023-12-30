@@ -28,7 +28,7 @@ function Login() {
             gender : gender.toLowerCase()
         };
         console.log("Sign up form data:", formData);
-        axios.post("http://localhost:3001/register" ,formData ).then(res=>{
+        axios.post("https://mindwellnesspro.onrender.com/register" ,formData ).then(res=>{
             alert(res.data.message);
         }).catch(err=>{
             alert("user cannot be added");
@@ -47,7 +47,7 @@ function Login() {
         e.preventDefault();
       
         try {
-          const response = await axios.post("http://localhost:3001/login", {
+          const response = await axios.post("https://mindwellnesspro.onrender.com/login", {
             email: email.toLowerCase(),
             password: password
           });

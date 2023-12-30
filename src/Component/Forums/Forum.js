@@ -48,7 +48,7 @@ function Forum() {
 
         let confirmDelete = window.confirm(`Are you sure you want to delete?`) 
         if(confirmDelete){
-          axios.delete(`http://localhost:3001/blog-posts/${id}`)
+          axios.delete(`https://mindwellnesspro.onrender.com/blog-posts/${id}`)
           alert("deleted successully")
         }
       }

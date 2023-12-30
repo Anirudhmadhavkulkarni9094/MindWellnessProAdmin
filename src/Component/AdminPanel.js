@@ -32,11 +32,15 @@ function AdminPanel() {
       {
         title: 'Questions',
         code: 'Questions',
+      },
+      {
+        title: 'Testimonial',
+        code: 'Testimonial',
       }
   ];
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100 absolute w-full -z-10 top-0">
+    <div className="flex justify-center items-center h-screen bg-gray-100  w-full -z-10">
       {auth ? (
         <div className="w-full max-w-3xl bg-white rounded-md shadow-lg p-8">
           <h1 className="text-3xl font-bold mb-6 text-center">Admin Panel - {user.toUpperCase().slice(0,1) + user.toLowerCase().slice(1)}</h1>

@@ -9,7 +9,10 @@ function Modal({ response, closeModal }) {
     
     <div className='fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 flex justify-center items-center  p-20 overflow-y-scroll'>
       <div className='bg-white p-6 rounded-lg m-10 w-screen max-h-96 overflow-y-scroll'>
+      <div className='flex justify-between m-5'>
       <h1 className='font-bold'>{response.name.toUpperCase()}</h1>
+      <h1 className='font-semibold'>{response.category.toUpperCase()}</h1>
+      </div>
       <hr></hr>
         {response.responses.length> 0 ? response.responses.map(res=>{
             return <div className='border-b border-gray-300 pb-2'>
@@ -54,7 +57,7 @@ function Response() {
     const confirmDelete = window.confirm(`Are you sure you want to delete '${responseToDelete.name}'?`);
     
     if (confirmDelete) {
-      axios.delete(`http://localhost:3001/DeleteUserResponse/${id}`).then(res => {
+      axios.delete(`http://localhost:3001/UserResponse/${id}`).then(res => {
         const updatedResponse = response.filter((res) => res._id !== id);
         setMessage('Response Deleted successfully');
         setResponse(updatedResponse);
@@ -90,6 +93,7 @@ function Response() {
           <p>Error: {error}</p>
         ) : (
           <div className='flex flex-col'>
+            
             {response.map((res, index) => (
               <div key={index} className='border-b border-gray-300 py-4 md:flex md:items-center md:justify-between'>
                 <div className='md:w-1/3'>
