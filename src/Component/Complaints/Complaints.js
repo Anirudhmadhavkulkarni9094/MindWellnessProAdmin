@@ -9,7 +9,16 @@ const Complaints = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchComplaints();
+    try {
+      const response = axios.get(
+        `https://mindwellnesspro.onrender.com/complaint/${status}`
+      );
+      setComplaints(response.data.data);
+      setError(null);
+    } catch (error) {
+      console.error("Error fetching complaints:", error);
+      setError("Failed to fetch complaints. Please try again.");
+    }
   }, [status]);
 
   const fetchComplaints = async () => {
