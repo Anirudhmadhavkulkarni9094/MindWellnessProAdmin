@@ -101,17 +101,17 @@ function AdminApproval() {
               <div>
                 {
                   admin.status === false ? (
-                    <h1 className='font-bold cursor-pointer text-red-500 border-2 border-red-500 rounded-lg p-2' onClick={() => handleApprove(admin._id)}>Unapproved</h1>
+                    <h1 className='font-bold cursor-pointer text-red-500 border-2 border-red-500 rounded-lg p-2 hover:bg-red-500 hover:text-white' onClick={() => handleApprove(admin._id)}>Unapproved</h1>
                   ) : (
-                    <h1 className='font-bold cursor-pointer text-green-500 border-2 border-green-500 rounded-lg p-2' onClick={() => handleDisApprove(admin._id)}>Approved</h1>
+                    <h1 className='font-bold cursor-pointer text-green-500 border-2 border-green-500 rounded-lg p-2 hover:bg-green-500 hover:text-white' onClick={() => handleDisApprove(admin._id)}>Approved</h1>
                     )
                   }
               </div>
               <div>
                 {admin.superAdmin === false ? (
-                  <h1 className='font-bold cursor-pointer text-red-500 border-2 border-red-500 rounded-lg p-2' onClick={() => handlePromotion(admin._id)}>Admin</h1>
+                  <h1 className='font-bold cursor-pointer text-red-500 border-2 border-red-500 rounded-lg p-2 hover:bg-red-500 hover:text-white' onClick={() => handlePromotion(admin._id)}>Admin</h1>
                   ) : (
-                    <h1 className='font-bold cursor-pointer text-green-500 border-2 border-green-500 rounded-lg p-2' onClick={() => handleDemotion(admin._id)}>Head Admin</h1>
+                    <h1 className='font-bold cursor-pointer text-green-500 border-2 border-green-500 rounded-lg p-2 hover:bg-green-500 hover:text-white' onClick={() => handleDemotion(admin._id)}>Head Admin</h1>
                     )}
               </div>
               </div>
