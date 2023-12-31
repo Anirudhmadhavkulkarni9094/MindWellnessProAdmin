@@ -57,7 +57,7 @@ function Response() {
     const confirmDelete = window.confirm(`Are you sure you want to delete '${responseToDelete.name}'?`);
     
     if (confirmDelete) {
-      axios.delete(`http://localhost:3001/UserResponse/${id}`).then(res => {
+      axios.delete(`https://mindwellnesspro.onrender.com/UserResponse/${id}`).then(res => {
         const updatedResponse = response.filter((res) => res._id !== id);
         setMessage('Response Deleted successfully');
         setResponse(updatedResponse);

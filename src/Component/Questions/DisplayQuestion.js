@@ -37,7 +37,7 @@ function DisplayQuestion() {
   const addQuestion = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/questions", {
+      const response = await axios.post("https://mindwellnesspro.onrender.com/questions", {
         Question: question,
         Category: category,
         Option : Option

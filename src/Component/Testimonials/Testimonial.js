@@ -6,7 +6,7 @@ function Testimonial() {
   const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/Testimonial/")
+    axios.get("https://mindwellnesspro.onrender.com/Testimonial/")
       .then(res => {
         setTestimonials(res.data.data);
         console.log(res.data.data);
@@ -18,7 +18,7 @@ function Testimonial() {
 
   const deleteTestimonial = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/Testimonial/${id}`);
+      await axios.delete(`https://mindwellnesspro.onrender.com/Testimonial/${id}`);
       const updatedTestimonials = testimonials.filter(test => test._id !== id);
       setTestimonials(updatedTestimonials);
       alert("Testimonial deleted successfully");
