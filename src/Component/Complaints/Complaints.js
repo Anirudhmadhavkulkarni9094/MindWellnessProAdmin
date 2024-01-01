@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect  , useCallback} from "react";
 import axios from "axios";
 import GoBack from "../GoBack";
 
@@ -8,20 +8,7 @@ const Complaints = () => {
   const [status, setStatus] = useState("Unresolved");
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    try {
-      const response = axios.get(
-        `https://mindwellnesspro.onrender.com/complaint/${status}`
-      );
-      setComplaints(response.data.data);
-      setError(null);
-    } catch (error) {
-      console.error("Error fetching complaints:", error);
-      setError("Failed to fetch complaints. Please try again.");
-    }
-  }, [status]);
-
-  const fetchComplaints = async () => {
+  const fetchComplaints = useCallback(async () => {
     try {
       const response = await axios.get(
         `https://mindwellnesspro.onrender.com/complaint/${status}`
@@ -32,7 +19,11 @@ const Complaints = () => {
       console.error("Error fetching complaints:", error);
       setError("Failed to fetch complaints. Please try again.");
     }
-  };
+  }, [status]);
+  
+  useEffect(() => {
+    fetchComplaints();
+  }, [fetchComplaints , status]);
 
   const updateStatus = async (id, newStatus) => {
     try {
