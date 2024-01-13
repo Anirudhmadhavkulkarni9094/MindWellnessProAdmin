@@ -14,8 +14,9 @@ function Modal({ response, closeModal }) {
       <h1 className='font-semibold'>{response.category.toUpperCase()}</h1>
       </div>
       <hr></hr>
-        {response.responses.length> 0 ? response.responses.map(res=>{
+        {response.responses.length> 0 ? response.responses.map((res)=>{
             return <div className='border-b border-gray-300 pb-2'>
+            
             <p className='text-gray-600'>Response : {res.response}</p>
             <p className='text-gray-600'>Description : {res.text}</p>
           </div>
@@ -96,9 +97,12 @@ function Response() {
             
             {response.map((res, index) => (
               <div key={index} className='border-b border-gray-300 py-4 md:flex md:items-center md:justify-between'>
-                <div className='md:w-1/3'>
-                  <h1 className='text-lg font-semibold'>{res.name}</h1>
+                <div className='flex items-center gap-10'>
+                <h1 className='font-bold'>{index+1}.</h1>
+                <div className=' lg:w-full md:w-1/3 '>
+                  <h1 className='text-lg font-semibold '>{res.name}</h1>
                   <p className='text-sm text-gray-600'>{res.email}</p>
+                </div>
                 </div>
                 <div className='flex gap-5 w-full justify-end md:w-fit md:gap-0 md:justify-start mt-4 md:mt-0'>
                   <button

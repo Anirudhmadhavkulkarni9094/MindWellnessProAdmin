@@ -72,11 +72,11 @@ function Report() {
          axios.delete(`https://mindwellnesspro.onrender.com/deleteReport/${uniqueId}`).then(console.log("deleted"));
          const confirmDelete = window.confirm(`Are you sure you want to delete?`);
          if(confirmDelete) {
-             setReports(reports)
+          
              setMessage("Report deleted successfully");
              setToast(true)
+             setReports(reports.filter(report=> report.id !== uniqueId));   
          }   
-         setReports(reports)   
     };
   
 
@@ -84,6 +84,7 @@ function Report() {
     <div className="overflow-x-auto">
       {auth ? <>
         <GoBack />
+        <h1 className='font-bold text-gray-400 text-sm mx-10 m-2'>{reports.length} response(s)</h1>
       {toast && <Toast message={message}></Toast>}
       <table className="min-w-full divide-y divide-gray-200 text-center">
         <thead>
