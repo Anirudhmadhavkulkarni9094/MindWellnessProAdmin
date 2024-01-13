@@ -77,6 +77,7 @@ function DisplayQuestion() {
               <option value='anxiety disorder'>Anxiety Disorder</option>
               <option value='depression'>Depression</option>
               <option value='bipolar'>Bipolar Disorder</option>
+              <option value='general'>General</option>
             </select>
           </th>
           <th>
@@ -125,6 +126,7 @@ function DisplayQuestion() {
             <option value='anxiety disorder'>Anxiety Disorder</option>
             <option value='depression'>Depression</option>
             <option value='bipolar'>Bipolar Disorder</option>
+            <option value='general'>General</option>
           </select>
         </div>
         <div className='flex flex-col'>
